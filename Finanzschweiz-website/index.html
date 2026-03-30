@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>FinanzSchweiz.ch — Persönliches Finanzcoaching für finanzielle Unabhängigkeit</title>
+<meta name="description" content="Finanzcoaching von Dr. Katharina Roten: Persönliche finanzielle Begleitung für Schweizer mit Fokus auf AHV, Altersvorsorge, Steuern und Vermögensaufbau."/>
+<meta name="keywords" content="Finanzcoaching Schweiz, AHV Rentenlücke, Altersvorsorge, Finanzplan, persönliche Finanzen"/>
+<link rel="canonical" href="https://finanzschweiz.ch/"/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<style>
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+.hero-left{background:var(--coal);display:flex;flex-direction:column;justify-content:flex-end;padding:80px 64px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 30% 65%,rgba(196,113,79,.18),transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(139,158,126,.12),transparent 50%)}
+.hero-left-content{position:relative;z-index:2}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);padding:6px 14px;border-radius:20px;margin-bottom:28px}
+.pill-dot{width:6px;height:6px;border-radius:50%;background:var(--terra-l);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.pill span:last-child{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:500}
+.hero-title{font-family:var(--fd);font-size:clamp(52px,5.5vw,82px);font-weight:300;color:#fff;line-height:1.0;margin-bottom:18px}
+.hero-title em{color:var(--terra-l);font-style:italic}
+.hero-sub{font-size:15.5px;color:rgba(255,255,255,.55);font-weight:300;line-height:1.75;margin-bottom:36px;max-width:420px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.scroll-hint{position:absolute;bottom:32px;right:40px;z-index:2;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.3);font-size:10px;letter-spacing:2px;text-transform:uppercase}
+.scroll-line{width:36px;height:1px;background:rgba(255,255,255,.2);position:relative;overflow:hidden}
+.scroll-line::after{content:'';position:absolute;left:-100%;top:0;width:100%;height:100%;background:var(--terra-l);animation:sl 2s infinite}
+@keyframes sl{to{left:100%}}
+.hero-right{background:var(--sand);padding:100px 60px 80px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-right::before{content:'';position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(196,113,79,.12),transparent 70%)}
+.phases{display:flex;flex-direction:column;gap:14px;margin-bottom:32px}
+.phase{display:flex;gap:16px;align-items:flex-start;padding:18px 20px;background:#fff;border-radius:14px;border:1px solid var(--border);transition:var(--tr);cursor:default}
+.phase:hover{box-shadow:var(--sh-md);transform:translateX(4px)}
+.phase-icon{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:19px;flex-shrink:0}
+.p1 .phase-icon{background:#FFF0EB}.p2 .phase-icon{background:#EFF5EB}.p3 .phase-icon{background:#F5F0EB}
+.phase-lbl{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--terra);font-weight:600;margin-bottom:2px}
+.phase-name{font-family:var(--fd);font-size:18px;font-weight:500;margin-bottom:2px}
+.phase-desc{font-size:12.5px;color:var(--mid);font-weight:300}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hero-stat{background:#fff;border-radius:12px;padding:14px;text-align:center;border:1px solid var(--border)}
+.hero-stat-n{font-family:var(--fd);font-size:30px;font-weight:600;color:var(--terra);line-height:1}
+.hero-stat-l{font-size:11px;color:var(--mid);margin-top:3px}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.story-img-wrap{position:relative}
+.story-img{width:100%;aspect-ratio:3/4;background:linear-gradient(145deg,var(--sand),var(--sand-d));border-radius:32px;display:flex;align-items:center;justify-content:center;font-size:80px}
+.story-badge{position:absolute;bottom:-18px;right:-18px;background:#fff;border-radius:14px;padding:18px 22px;box-shadow:var(--sh-lg);border:1px solid var(--border)}
+.badge-n{font-family:var(--fd);font-size:38px;font-weight:600;color:var(--terra);line-height:1}
+.badge-t{font-size:11.5px;color:var(--mid);margin-top:2px}
+.story-accent{position:absolute;top:-14px;left:-14px;width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--sage-l),var(--sage));opacity:.25;z-index:-1}
+.story-content p{font-size:15px;color:var(--mid);font-weight:300;line-height:1.75;margin-bottom:16px}
+.story-quote{border-left:3px solid var(--terra-l);padding-left:18px;margin:24px 0}
+.story-quote p{font-family:var(--fd);font-size:21px;font-style:italic;color:var(--coal);font-weight:300;line-height:1.4}
+.blog-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px}
+.blog-card{background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--border);transition:var(--tr);display:flex;flex-direction:column}
+.blog-card:hover{box-shadow:var(--sh-lg);transform:translateY(-3px)}
+.blog-feat{grid-row:span 2}
+.blog-img{aspect-ratio:16/10;background:var(--sand);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:54px}
+.blog-feat .blog-img{aspect-ratio:4/3}
+.blog-cat{position:absolute;top:12px;left:12px;background:#fff;padding:3px 11px;border-radius:20px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--terra)}
+.blog-body{padding:22px;flex:1;display:flex;flex-direction:column}
+.blog-feat .blog-body{padding:28px}
+.blog-date{font-size:11px;color:var(--lt);margin-bottom:8px}
+.blog-card h3{font-family:var(--fd);font-size:19px;font-weight:500;line-height:1.25;flex:1;margin-bottom:10px}
+.blog-feat h3{font-size:26px}
+.blog-card .excerpt{font-size:13px;color:var(--mid);line-height:1.6;font-weight:300}
+.read-more{font-size:12px;font-weight:600;color:var(--terra);margin-top:14px;display:inline-flex;align-items:center;gap:4px;transition:gap var(--tr)}
+.read-more:hover{gap:8px}
+.read-more::after{content:'→'}
+.insta-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:3px;border-radius:14px;overflow:hidden}
+.insta-item{aspect-ratio:1;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:28px;position:relative;overflow:hidden;cursor:pointer}
+.insta-ov{position:absolute;inset:0;background:rgba(30,30,30,.6);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s;font-size:20px}
+.insta-item:hover .insta-ov{opacity:1}
+@media(max-width:960px){.hero{grid-template-columns:1fr;min-height:auto}.hero-left{min-height:55vh;padding:90px 28px 52px}.hero-right{padding:48px 28px}.blog-grid{grid-template-columns:1fr}.blog-feat{grid-row:auto}.story-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a href="index.html" class="logo">Finanz<span>Schweiz</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="meine-geschichte.html">Meine Geschichte</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="coaching.html">Coaching</a></li>
+    <li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <a href="kontakt.html" class="btn btn--primary">Gratis Erstgespräch</a>
+  <button class="nav-hamburger"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="mobile-menu"><button class="mobile-menu-close">✕</button>
+  <a href="index.html">Home</a><a href="meine-geschichte.html">Meine Geschichte</a>
+  <a href="blog.html">Blog</a><a href="coaching.html">Coaching</a><a href="kontakt.html">Kontakt</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-bg"></div>
+    <div class="hero-left-content">
+      <div class="pill"><span class="pill-dot"></span><span>Finanzcoaching verfügbar</span></div>
+      <h1 class="hero-title">Finanzielle<br><em>Unabhängigkeit —</em><br>ab jetzt.</h1>
+      <p class="hero-sub">Ich habe mein Verhältnis zu Geld komplett transformiert — von Angst vor Steuern bis zu einer soliden Anlagestrategie. Heute helfe ich anderen, finanzielle Sicherheit aufzubauen.</p>
+      <div class="hero-btns">
+        <a href="meine-geschichte.html" class="btn btn--primary">Meine Geschichte lesen</a>
+        <a href="coaching.html" class="btn btn--ghost">Finanzcoaching entdecken</a>
+      </div>
+    </div>
+    <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
+  </div>
+  <div class="hero-right">
+    <div class="phases" data-reveal>
+      <div class="phase p1"><div class="phase-icon">📊</div><div><div class="phase-lbl">Phase 1</div><div class="phase-name">Basis verstehen</div><div class="phase-desc">Persönliche Situation, Ziele & Rentenlücke analysieren</div></div></div>
+      <div class="phase p2"><div class="phase-icon">💰</div><div><div class="phase-lbl">Phase 2</div><div class="phase-name">Vermögen aufbauen</div><div class="phase-desc">Sparplan, Anlageplanung & Steuern optimieren</div></div></div>
+      <div class="phase p3"><div class="phase-icon">📈</div><div><div class="phase-lbl">Phase 3</div><div class="phase-name">Strategisch investieren</div><div class="phase-desc">Vermögen wachsen lassen — zeitbasiert & sicher</div></div></div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-n">3</div><div class="hero-stat-l">Phasen der Planung</div></div>
+      <div class="hero-stat"><div class="hero-stat-n">10+</div><div class="hero-stat-l">Jahre Erfahrung</div></div>
+      <div class="hero-stat"><div class="hero-stat-n">100%</div><div class="hero-stat-l">Personalisiert</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<div class="trust-bar">
+  <div class="trust-item"><span>🇨🇭</span> Swissmedic Healthcare Economics Expert</div>
+  <div class="trust-item"><span>🎓</span> MD + MBA in Healthcare Economics</div>
+  <div class="trust-item"><span>💬</span> Deutsch & Français</div>
+  <div class="trust-item"><span>💼</span> Selbständige & Angestellte</div>
+  <div class="trust-item"><span>✨</span> Schweiz-fokussiert (AHV, Steuern)</div>
+</div>
+
+<!-- STORY TEASER -->
+<section class="section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-img-wrap" data-reveal>
+        <div class="story-accent"></div>
+        <div class="story-img">💼</div>
+        <div class="story-badge"><div class="badge-n">10+</div><div class="badge-t">Jahre Finance</div></div>
+      </div>
+      <div class="story-content" data-reveal data-delay="150">
+        <span class="lbl" style="margin-bottom:12px">Meine Geschichte</span>
+        <h2 style="margin-bottom:18px">Ich bin der Beweis,<br><em>dass es möglich ist.</em></h2>
+        <p>Als Ärztin mit MBA in Healthcare Economics dachte ich, Finanzen zu verstehen. Die Realität? Ich hatte Angst vor meinen Steuererklarungen und keine Ahnung von meiner AHV-Lücke.</p>
+        <p>Heute, nach Jahren der persönlichen Finanzplanung, teile ich alles, was wirklich funktioniert hat — für Schweizer Ärzte, Selbstständige und Professionelle, die finanzielle Sicherheit aufbauen wollen.</p>
+        <div class="story-quote"><p>"Ich wollte nicht nur Geld sparen — ich wollte finanzielle Freiheit und Sicherheit im Alter fühlen."</p></div>
+        <a href="meine-geschichte.html" class="btn btn--primary">Ganze Geschichte lesen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section--alt">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:20px">
+      <div><span class="lbl" style="margin-bottom:12px">Meine Angebote</span><h2>Wie ich dich<br><em>begleiten kann</em></h2></div>
+      <p style="font-size:14.5px;color:var(--mid);font-weight:300;max-width:320px;line-height:1.65">Von individuellem Finanzcoaching bis zu spezialisierten Modulen.</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc" data-reveal><div class="svc-icon">�</div><h3>Gratis Finanzcoaching-Gespräch</h3><p>30 Minuten, kein Druck. Ich lerne dich kennen — deine finanzielle Situation, deine Ziele, deine Herausforderungen.</p><div class="svc-price"><span class="svc-price-n">0 CHF</span></div><ul class="svc-feats"><li class="svc-feat">30 Min. via Zoom</li><li class="svc-feat">Finanzielle Analyse</li><li class="svc-feat">Kein Verkaufsdruck</li></ul><a href="kontakt.html" class="btn btn--outline">Termin buchen</a></div>
+      <div class="svc svc--dark" data-reveal data-delay="100"><span class="svc-badge">⭐ Beliebt</span><div class="svc-icon">🤟</div><h3>1:1 Finanzcoaching</h3><p>12 Wochen intensive Begleitung. Finanzplan, Anlageberatung, wöchentliche Check-ins, steuerliche Optimierung.</p><div class="svc-price"><span class="svc-price-n">CHF 450</span><span class="svc-price-p">/ Monat</span></div><ul class="svc-feats"><li class="svc-feat">Persönlicher Finanzplan</li><li class="svc-feat">Wöchentliche Video-Calls</li><li class="svc-feat">Email/WhatsApp-Support</li><li class="svc-feat">AHV & Steuern optimieren</li><li class="svc-feat">30 Tage Garantie</li></ul><a href="coaching.html" class="btn btn--primary">Jetzt anmelden</a></div>
+      <div class="svc" data-reveal data-delay="200"><div class="svc-icon">📋</div><h3>Spezial-Module</h3><p>Fokussierte Module für spezifische Themen — AHV, Steuern für Selbständige, erste Investitionen.</p><div class="svc-price"><span class="svc-price-n">CHF 350–550</span><span class="svc-price-p">pro Modul</span></div><ul class="svc-feats"><li class="svc-feat">4–6 Sessions focus</li><li class="svc-feat">Konkrete Unterlagen</li><li class="svc-feat">Praktische Checklisten</li><li class="svc-feat">Lebenslanger Zugang</li></ul><a href="coaching.html" class="btn btn--sage">Mehr erfahren</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG PREVIEW -->
+<section class="section">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;flex-wrap:wrap;gap:16px">
+      <div><span class="lbl" style="margin-bottom:12px">Blog</span><h2>Tipps &<br><em>Inspiration</em></h2></div>
+      <a href="blog.html" class="btn btn--outline">Alle Artikel</a>
+    </div>
+    <div class="blog-grid">
+      <div class="blog-card blog-feat" data-reveal>
+        <div class="blog-img" style="aspect-ratio:4/3">📊<span class="blog-cat">AHV & Rente</span></div>
+        <div class="blog-body">
+          <div class="blog-date">20. März 2025</div>
+          <h3>10 Faktoren, die Deine Rentenlücke vergrössern — und wie Du sie schliessst</h3>
+          <p class="excerpt">Viele Menschen kämpfen mit einer Rentenlücke, ohne es zu wissen. Ich zeige Dir die 10 grössten Fehler — und konkrete Lösungen.</p>
+          <a href="articles/rentenluecke-10-faktoren.html" class="read-more">Weiterlesen</a>
+        </div>
+      </div>
+      <div class="blog-card" data-reveal data-delay="100">
+        <div class="blog-img">💳<span class="blog-cat">Steuern</span></div>
+        <div class="blog-body">
+          <div class="blog-date">10. März 2025</div>
+          <h3>Selbständige in der Schweiz: Steuern & Vorsorge</h3>
+          <a href="articles/selbststaendige-steuern-vorsorge.html" class="read-more">Weiterlesen</a>
+        </div>
+      </div>
+      <div class="blog-card" data-reveal data-delay="200">
+        <div class="blog-img">📈<span class="blog-cat">Investieren</span></div>
+        <div class="blog-body">
+          <div class="blog-date">1. März 2025</div>
+          <h3>Deine erste Investition: Von 0 bis CHF 50'000</h3>
+          <a href="articles/erste-investition.html" class="read-more">Weiterlesen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section section--sand">
+  <div class="container">
+    <div class="section-hd centered"><span class="lbl">Stimmen</span><h2 style="margin-top:10px">Was meine<br><em>Klientinnen sagen</em></h2></div>
+    <div class="testi-grid">
+      <div class="testi" data-reveal><div class="testi-stars">★★★★★</div><p class="testi-text">Katharina hat mir gezeigt, dass Finanzen nicht kompliziert sein müssen. In 3 Monaten habe ich meine AHV-Lücke um CHF 80'000 geschlossen und meine Steuern optimiert. Absolute Empfehlung!</p><div class="testi-author"><div class="testi-avatar">👩</div><div><div class="testi-name">Dr. med. Sarah M.</div><div class="testi-meta">Internistin, Zürich</div></div></div></div>
+      <div class="testi" data-reveal data-delay="100"><div class="testi-stars">★★★★★</div><p class="testi-text">Endlich jemand, der ärztliche Finanzprobleme versteht! Die Anlageberatung ist konkret und umzusetzen. Ich fühle mich jetzt kontrollierend statt ängstlich.</p><div class="testi-author"><div class="testi-avatar">👩‍⚕️</div><div><div class="testi-name">Julia B.</div><div class="testi-meta">Zahnhärztin, Bern</div></div></div></div>
+      <div class="testi" data-reveal data-delay="200"><div class="testi-stars">★★★★★</div><p class="testi-text">Katharina antwortet wirklich auf meine Fragen. Ihr Modul "Selbstständige Steuern" hat mir allein CHF 25'000 gespart. Das beste Geld, das ich je investi</p><div class="testi-author"><div class="testi-avatar">👩‍💼</div><div><div class="testi-name">Mia K.</div><div class="testi-meta">Freelance Consultant, Basel</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIN -->
+<section class="section">
+  <div class="container">
+    <div class="optin" data-reveal>
+      <span class="lbl">Gratis Ressource</span>
+      <h2>Meine AHV-Checkliste<br><em>für finanzielle Planung</em></h2>
+      <p class="optin-sub">Alles, was Du über Deine AHV-Lücke wissen musst — Schritt für Schritt erklärt.</p>
+      <form class="optin-form" action="https://formspree.io/f/YOURFORMID" method="POST">
+        <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required/>
+        <input type="hidden" name="_subject" value="Neues Freebie-Abonnement"/>
+        <button type="submit" class="btn btn--primary">Jetzt herunterladen →</button>
+      </form>
+      <p class="optin-note">Kein Spam. Abmeldung jederzeit möglich.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-hd centered" style="margin-bottom:28px"><span class="lbl">Newsletter</span><h2 style="margin-top:10px">Finanz-Tipps<br><em>direkt in dein Postfach</em></h2></div>
+    <div style="max-width:550px;margin:0 auto;text-align:center">
+      <p style="font-size:15px;color:var(--mid);margin-bottom:24px;font-weight:300;line-height:1.75">Jeden 2. Montag: Praktische Finanztipps, neue Blogartikel und exklusive Insights von meiner Arbeit bei Swissmedic.</p>
+      <form class="optin-form" action="https://formspree.io/f/YOURFORMID" method="POST" style="display:flex;gap:10px;max-width:100%">
+        <input type="email" name="email" placeholder="deine@email.ch" required style="flex:1"/>
+        <button type="submit" class="btn btn--primary">Anmelden →</button>
+      </form>
+      <p class="optin-note">Kein Spam. Abmeldung jederzeit.</p>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="footer-logo">Finanz<span>Schweiz</span></a><p>Ich begleite Schweizer Professionelle auf ihrem Weg zu finanzieller Unabhängigkeit, Sicherheit und Vermögensaufbau — fokussiert auf AHV, Steuern und pragmatische Anlageplanung.</p><div class="footer-social"><a href="#" title="LinkedIn">🔗</a><a href="#" title="Email">📧</a></div></div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="meine-geschichte.html">Meine Geschichte</a></li><li><a href="blog.html">Blog</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+    <div class="footer-col"><h4>Themen</h4><ul><li><a href="blog.html">AHV & Rentenlücke</a></li><li><a href="blog.html">Steuern & Planung</a></li><li><a href="blog.html">Investieren & Vermögen</a></li><li><a href="blog.html">Selbstständige</a></li><li><a href="blog.html">Mindset & Psychologie</a></li></ul></div>
+    <div class="footer-col"><h4>Rechtliches</h4><ul><li><a href="kontakt.html#impressum">Impressum</a></li><li><a href="kontakt.html#datenschutz">Datenschutz</a></li><li><a href="kontakt.html">AGB</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 FinanzSchweiz.ch — Alle Rechte vorbehalten</span><span>Made with 🇨🇭 in der Schweiz</span></div>
+  <p class="footer-disc">Disclaimer: Die Inhalte dieser Website ersetzen keine professionelle Finanzberatung. Finanzcoaching ist kein lizenziertes Investment- oder Steuerberatungsprodukt. Konsultieren Sie immer mit einem FINMA-regulierten Berater für grössere Entscheidungen.</p>
+</div></footer>
+<script src="js/main.js"></script>
+</body></html>

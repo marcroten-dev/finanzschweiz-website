@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Finanzcoaching & Kurse — FinanzSchweiz.ch</title>
+  <meta name="description" content="1:1 Finanzcoaching und spezialisierte Module für Schweizer Professionelle. Individuelle Begleitung zu AHV, Steuern und Vermögensaufbau — auf Deutsch & Français." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* PRICING CARDS */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-bottom: 60px;
+    }
+    @media (max-width: 1024px) { .services-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } }
+
+    .service-card {
+      background: #fff;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .service-card:hover {
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+      transform: translateY(-6px);
+    }
+    .service-card--featured {
+      background: linear-gradient(135deg, #FFF8F5 0%, #FFF3EE 100%);
+      border: 2px solid var(--terra);
+      transform: scale(1.04);
+    }
+    .service-card--featured:hover {
+      box-shadow: 0 28px 80px rgba(196, 113, 79, 0.2);
+      transform: translateY(-8px) scale(1.04);
+    }
+
+    .service-badge {
+      position: absolute;
+      top: -14px;
+      left: 32px;
+      background: var(--terra);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    .service-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .service-card h3 {
+      font-family: var(--fd);
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .service-card > p {
+      font-size: 14px;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 28px;
+      flex-grow: 1;
+    }
+
+    .service-price {
+      background: rgba(196, 113, 79, 0.06);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 28px;
+      text-align: center;
+    }
+    .service-card--featured .service-price {
+      background: rgba(196, 113, 79, 0.12);
+    }
+
+    .service-price__amount {
+      display: block;
+      font-family: var(--fd);
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--terra);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .service-price__period {
+      display: block;
+      font-size: 13px;
+      color: var(--mid);
+      font-weight: 400;
+    }
+
+    .service-features {
+      list-style: none;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .service-feature {
+      font-size: 13px;
+      color: var(--mid);
+      font-weight: 400;
+      line-height: 1.8;
+      padding-left: 24px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .service-feature::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--terra);
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .service-card .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 14px 20px;
+      font-size: 14px;
+    }
+
+    .faq { display: flex; flex-direction: column; gap: 0; }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      padding: 22px 0;
+    }
+    .faq-q {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-q::after {
+      content: '+';
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--terra);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-q::after { transform: rotate(45deg); }
+    .faq-a {
+      display: none;
+      font-size: 14.5px;
+      color: var(--mid);
+      line-height: 1.7;
+      font-weight: 300;
+      padding-top: 14px;
+      max-width: 680px;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 768px) { .process-steps { grid-template-columns: 1fr 1fr; } }
+    .process-step {
+      text-align: center;
+      padding: 32px 24px;
+      background: white;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .step-num {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--terra-pale);
+      color: var(--terra);
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .process-step h4 {
+      font-size: 17px;
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+    .process-step p {
+      font-size: 13px;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .guarantee-box {
+      background: linear-gradient(135deg, #FFF8F5 0%, #FFF3EE 100%);
+      border: 2px solid var(--terra-pale);
+      border-radius: 20px;
+      padding: 36px 40px;
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+    .guarantee-box__icon { font-size: 48px; flex-shrink: 0; }
+    .guarantee-box h3 { font-size: 24px; margin-bottom: 10px; }
+    .guarantee-box p { font-size: 14.5px; color: var(--mid); font-weight: 300; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Finanz<span>Schweiz</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="meine-geschichte.html">Meine Geschichte</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="coaching.html">Coaching</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>    <a href="kontakt.html" class="btn btn--primary">Gratis Erstgespräch</a>
+    <button class="nav-hamburger"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <button class="mobile-menu-close">✕</button>
+  <a href="index.html">Home</a>
+  <a href="meine-geschichte.html">Meine Geschichte</a>
+  <a href="blog.html">Blog</a>
+  <a href="coaching.html">Coaching</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="label">Finanzcoaching & Module</span>
+    <h1>Dein Weg zu<br><em>finanzieller Freiheit.</em></h1>
+    <p>Individuelle Begleitung für Schweizer Professionelle — auf Deutsch & Français.</p>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="label">So funktioniert es</span>
+      <h2 style="margin-top:12px;">In 4 Schritten zu<br><em>deiner finanziellen Freiheit</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step" data-reveal>
+        <div class="step-num">1</div>
+        <h4>Gratis Erstgespräch</h4>
+        <p>30 Minuten, kein Druck. Ich lerne dich kennen — deine finanzielle Situation, deine Ziele, deine Herausforderungen.</p>
+      </div>
+      <div class="process-step" data-reveal data-delay="100">
+        <div class="step-num">2</div>
+        <h4>Dein persönlicher Plan</h4>
+        <p>AHV-Analyse, Steuern, Vermögensaufbau — komplett auf dich zugeschnitten. Kein Einheitsplan von der Stange.</p>
+      </div>
+      <div class="process-step" data-reveal data-delay="200">
+        <div class="step-num">3</div>
+        <h4>Wöchentliche Begleitung</h4>
+        <p>Video-Calls, Email/WhatsApp-Support, Anpassungen. Du bist nie allein auf dem Weg.</p>
+      </div>
+      <div class="process-step" data-reveal data-delay="300">
+        <div class="step-num">4</div>
+        <h4>Deine Transformation</h4>
+        <p>Ergebnisse, auf die du stolz sein kannst — eine klare Finanzplanung und ein ruhiges Schlafen in der Nacht.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section section--alt" id="preise">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="label">Angebote</span>
+      <h2 style="margin-top:12px;">Wähle deinen<br><em>Finanzierungsweg</em></h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card" data-reveal>
+        <div class="service-icon">📋</div>
+        <h3>Finanz-Erstgespräch</h3>
+        <p>Der erste Schritt. Kein Risiko, kein Commitment — einfach kennenlernen und sehen, ob wir zueinander passen.</p>
+        <div class="service-price"><span class="service-price__amount">0 CHF</span></div>
+        <ul class="service-features">
+          <li class="service-feature">30 Minuten via Zoom</li>
+          <li class="service-feature">Analyse deiner finanziellen Situation</li>
+          <li class="service-feature">Erste konkrete Empfehlungen</li>
+          <li class="service-feature">Kein Verkaufsdruck</li>
+        </ul>
+        <a href="kontakt.html" class="btn btn--outline">Jetzt buchen</a>
+      </div>
+      <div class="service-card service-card--featured" data-reveal data-delay="100">
+        <span class="service-badge">⭐ Empfohlen</span>
+        <div class="service-icon">💼</div>
+        <h3>1:1 Finanzcoaching<br>12 Wochen</h3>
+        <p>Die intensive Begleitung. Alles individuell — AHV-Analyse, Steuern, Investitionsstrategie. Mit mir an deiner Seite.</p>
+        <div class="service-price">
+          <span class="service-price__amount">CHF 450</span>
+          <span class="service-price__period">/ Monat · 3 Monate</span>
+        </div>
+        <ul class="service-features">
+          <li class="service-feature">Persönlicher Finanzplan</li>
+          <li class="service-feature">Wöchentliche Video-Calls (60 Min.)</li>
+          <li class="service-feature">Email/WhatsApp Support</li>
+          <li class="service-feature">AHV & Steuer-Optimierung</li>
+          <li class="service-feature">Investitionsstrategie</li>
+          <li class="service-feature">30 Tage Geld-zurück-Garantie</li>
+        </ul>
+        <a href="kontakt.html" class="btn btn--primary">Jetzt starten</a>
+      </div>
+      <div class="service-card" data-reveal data-delay="200">
+        <div class="service-icon">📚</div>
+        <h3>Spezial-Module<br>4–8 Wochen</h3>
+        <p>Fokussierte Module für spezifische Herausforderungen — AHV, Steuern als Selbstständige, erste Investments.</p>
+        <div class="service-price"><span class="service-price__amount">CHF 350–550</span><span class="service-price__period">pro Modul</span></div>
+        <ul class="service-features">
+          <li class="service-feature">4–6 fokussierte Sessions</li>
+          <li class="service-feature">Konkrete Checklisten & Tools</li>
+          <li class="service-feature">Praktische Unterlagen</li>
+          <li class="service-feature">Lebenslanger Zugang</li>
+          <li class="service-feature">Flexible Planung</li>
+        </ul>
+        <a href="kontakt.html" class="btn btn--sage">Mehr erfahren</a>
+      </div>
+    </div>
+
+    <!-- GUARANTEE -->
+    <div class="guarantee-box" style="margin-top:40px;" data-reveal>
+      <div class="guarantee-box__icon">🛡️</div>
+      <div>
+        <h3>30-Tage Geld-zurück-Garantie</h3>
+        <p>Ich stehe hinter meiner Arbeit. Wenn du nach 30 Tagen nicht das Gefühl hast, dass das Finanzcoaching zu dir passt und dir konkret hilft, bekommst du dein Geld vollständig zurück — ohne Fragen. Weil ich nur mit Klientinnen arbeite, denen ich wirklich helfen kann.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="label">Ergebnisse</span>
+      <h2 style="margin-top:12px;">Was meine<br><em>Klientinnen sagen</em></h2>
+    </div>
+    <div class="testimonials-track">
+      <div class="testimonial" data-reveal>
+        <div class="testimonial__stars">★★★★★</div>
+        <p class="testimonial__text">Katharina hat mir gezeigt, dass Finanzen nicht kompliziert sein müssen. In 3 Monaten habe ich meine AHV-Lücke um CHF 80'000 geschlossen und meine Steuern optimiert. Absolute Empfehlung!</p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar">👩‍⚕️</div>
+          <div><div class="testimonial__name">Dr. med. Sarah M.</div><div class="testimonial__meta">Internistin, Zürich</div></div>
+        </div>
+      </div>
+      <div class="testimonial" data-reveal data-delay="100">
+        <div class="testimonial__stars">★★★★★</div>
+        <p class="testimonial__text">Endlich jemand, der ärztliche Finanzprobleme versteht! Die Anlageberatung ist konkret und umzusetzen. Ich fühle mich jetzt kontrollierend statt ängstlich.</p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar">👩‍⚕️</div>
+          <div><div class="testimonial__name">Julia B.</div><div class="testimonial__meta">Zahnhärztin, Bern</div></div>
+        </div>
+      </div>
+      <div class="testimonial" data-reveal data-delay="200">
+        <div class="testimonial__stars">★★★★★</div>
+        <p class="testimonial__text">Katharina antwortet wirklich auf meine Fragen. Ihr Modul "Selbstständige Steuern" hat mir allein CHF 25'000 gespart. Das beste Geld, das ich je investiert habe.</p>
+        <div class="testimonial__author">
+          <div class="testimonial__avatar">👩‍💼</div>
+          <div><div class="testimonial__name">Mia K.</div><div class="testimonial__meta">Freelance Consultant, Basel</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--alt">
+  <div class="container container--narrow">
+    <div class="section-header">
+      <span class="label">Fragen</span>
+      <h2 style="margin-top:12px;">Häufige<br><em>Fragen</em></h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-q">Für wen ist Finanzcoaching sinnvoll?</div>
+        <div class="faq-a">Finanzcoaching ist ideal für Ärzte,  Selbstständige, Fachpersonen und alle, die ihre finanzielle Situation verstehen und aktiv verbessern möchten. Egal ob Du gerade anfängst oder bereits investierst — ich begleite Dich.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Was unterscheidet mein Finanzcoaching von anderen Finanzberatern?</div>
+        <div class="faq-a">Als Ärztin mit MBA verstehe ich die spezifischen Herausforderungen von Healthcare-Professionellen. Ich bin nicht an Produktverkäufe gebunden und fokussiere auf nachhaltige, praktische Strategien, nicht auf Finanzprodukte.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Kann ich das Coaching auch auf Französisch machen?</div>
+        <div class="faq-a">Ja! Ich bin zweisprachig und biete alle Leistungen auf Deutsch und Französisch an.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Wie viel Zeit brauche ich pro Woche?</div>
+        <div class="faq-a">Im 1:1 Coaching sind es ca. 2–3 Stunden pro Woche — ein Video-Call (60 Min.) und Eigenarbeit. Die Module sind flexibler. Beides passt in einen vollen Berufsleben.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Was passiert nach den 12 Wochen Coaching?</div>
+        <div class="faq-a">Du hast einen klaren Finanzplan und alle Werkzeuge, um diesen selbstständig umzusetzen. Viele Klientinnen arbeiten mit mir weiter im "Maintenance-Modus" (monatl. Check-ins). Aber die meisten sind nach 12 Wochen unabhängig.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Benötige ich bereits Finanzwissen?</div>
+        <div class="faq-a">Nein! Das ist sogar oft besser — wenn Du mit Angst vor Finanzen startest, lernst Du strukturiert die Basics. Ich erkläre alles verständlich und FINMA-konform.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section">
+  <div class="container" style="max-width:700px;">
+    <div class="optin" data-reveal>
+      <span class="label">Bereit loszulegen?</span>
+      <h2>Starte mit einem<br><em>kostenlosen Gespräch</em></h2>
+      <p>30 Minuten. Kein Verkaufsdruck. Ich bin einfach für dich da.</p>
+      <a href="kontakt.html" class="btn btn--primary" style="font-size:15px;padding:16px 36px;">Finanzgespr äch buchen →</a>
+      <p class="optin-note">Auf Deutsch oder Français · Via Zoom · Kostenlos</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="nav__logo">Finanz<span style="color:var(--terra)">Schweiz</span></a>
+        <p>Begleitung für Schweizer Professionelle auf ihrem Weg zu finanzieller Unabhängigkeit.</p>
+        <div class="footer__social"><a href="#">🔗</a><a href="#">📧</a></div>
+      </div>
+      <div class="footer__col"><h4>Navigation</h4><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="meine-geschichte.html">Meine Geschichte</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="coaching.html">Coaching</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul></div>
+      <div class="footer__col"><h4>Angebote</h4><ul>
+        <li><a href="#preise">Finanz-Erstgespräch (gratis)</a></li>
+        <li><a href="#preise">1:1 Finanzcoaching</a></li>
+        <li><a href="#preise">Spezial-Module</a></li>
+      </ul></div>
+      <div class="footer__col"><h4>Rechtliches</h4><ul>
+        <li><a href="kontakt.html">Impressum</a></li>
+        <li><a href="kontakt.html">Datenschutz</a></li>
+        <li><a href="kontakt.html">AGB</a></li>
+      </ul></div>
+    </div>
+    <div class="footer__bottom"><span>© 2025 FinanzSchweiz.ch</span><span>Made with 🇨🇭 in der Schweiz</span></div>
+    <p class="footer__disclaimer">Hinweis: Finanzcoaching ersetzt keine professionelle Finanzberatung. Konsultieren Sie einen FINMA-regulierten Berater.</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      item.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>

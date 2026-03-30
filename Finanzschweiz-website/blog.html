@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Blog — FinanzSchweiz.ch</title>
+<meta name="description" content="Artikel zu persönlichen Finanzen, AHV-Optimierung, Steuern und Vermögensaufbau. Praktische Tipps für Schweizer."/>
+<link rel="stylesheet" href="css/style.css"/>
+<style>
+.blog-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:44px}
+.filter-btn{padding:8px 20px;border-radius:50px;border:1.5px solid var(--border);background:#fff;font-family:var(--fb);font-size:12.5px;font-weight:500;cursor:pointer;transition:var(--tr);color:var(--mid)}
+.filter-btn.active,.filter-btn:hover{background:var(--terra);color:#fff;border-color:var(--terra)}
+.articles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.art-card{background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--border);transition:var(--tr);display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.art-card:hover{box-shadow:var(--sh-lg);transform:translateY(-4px)}
+.art-img{aspect-ratio:16/10;background:var(--sand);display:flex;align-items:center;justify-content:center;font-size:52px;position:relative}
+.art-body{padding:24px;flex:1;display:flex;flex-direction:column}
+.art-cat{font-size:10.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--terra);margin-bottom:10px}
+.art-title{font-family:var(--fd);font-size:20px;font-weight:500;line-height:1.3;flex:1;margin-bottom:10px}
+.art-excerpt{font-size:13.5px;color:var(--mid);line-height:1.6;font-weight:300;margin-bottom:18px}
+.art-meta{display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--lt);padding-top:14px;border-top:1px solid var(--border)}
+.art-read{font-size:12.5px;font-weight:600;color:var(--terra)}
+.art-read::after{content:' →'}
+@media(max-width:900px){.articles-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:580px){.articles-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner">
+  <a href="index.html" class="logo">Finanz<span>Schweiz</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="meine-geschichte.html">Meine Geschichte</a></li>
+    <li><a href="blog.html" class="active">Blog</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="kontakt.html">Kontakt</a></li>
+  </ul>
+  <a href="kontakt.html" class="btn btn--primary">Gratis Erstgespräch</a>
+  <button class="nav-hamburger"><span></span><span></span><span></span></button>
+</div></nav>
+<div class="mobile-menu"><button class="mobile-menu-close">✕</button>
+  <a href="index.html">Home</a><a href="meine-geschichte.html">Meine Geschichte</a>
+  <a href="blog.html">Blog</a><a href="coaching.html">Coaching</a><a href="kontakt.html">Kontakt</a>
+</div>
+
+<div class="page-hero">
+  <div class="container">
+    <span class="lbl">Wissen & Inspiration</span>
+    <h1>Der<br><em>Blog</em></h1>
+    <p class="page-hero-sub">Praktische Artikel zu AHV, Steuern, Investieren und finanzieller Freih eit — von einer Ärztin mit Finance-Expertise.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="blog-filters">
+      <button class="filter-btn active" data-cat="all">Alle Themen</button>
+      <button class="filter-btn" data-cat="ahv">AHV & Rente</button>
+      <button class="filter-btn" data-cat="steuern">Steuern & Planung</button>
+      <button class="filter-btn" data-cat="investieren">Investieren</button>
+      <button class="filter-btn" data-cat="selbststaendige">Selbstständige</button>
+      <button class="filter-btn" data-cat="mindset">Mindset</button>
+    </div>
+
+    <div class="articles-grid">
+      <a href="articles/rentenluecke-10-faktoren.html" class="art-card" data-cat="ahv" data-reveal>
+        <div class="art-img">📊</div>
+        <div class="art-body">
+          <div class="art-cat">AHV & Rente</div>
+          <div class="art-title">10 Faktoren, die Deine Rentenlücke vergrössern — und wie Du sie schliessst</div>
+          <div class="art-excerpt">Viele Menschen kämpfen mit einer Rentenlücke, ohne es zu wissen. Ich zeige Dir die 10 grössten Fehler — und konkrete Lösungen.</div>
+          <div class="art-meta"><span>20. März 2025 · 12 Min.</span><span class="art-read">Lesen</span></div>
+        </div>
+      </a>
+
+      <a href="articles/selbststaendige-steuern-vorsorge.html" class="art-card" data-cat="selbststaendige" data-reveal data-delay="80">
+        <div class="art-img">💼</div>
+        <div class="art-body">
+          <div class="art-cat">Selbstständige</div>
+          <div class="art-title">Selbstständig in der Schweiz: Steuern & Vorsorge — Der praktische Guide</div>
+          <div class="art-excerpt">Welche Steuern zahlst Du wirklich? Wie sicherst Du Deine Altersvorsorge? Ein ehrlicher Guide für Solopreneurs.</div>
+          <div class="art-meta"><span>10. März 2025 · 10 Min.</span><span class="art-read">Lesen</span></div>
+        </div>
+      </a>
+
+      <a href="articles/erste-investition.html" class="art-card" data-cat="investieren" data-reveal data-delay="160">
+        <div class="art-img">📈</div>
+        <div class="art-body">
+          <div class="art-cat">Investieren</div>
+          <div class="art-title">Deine erste Investition: Von 0 bis CHF 50'000 — Schritt für Schritt</div>
+          <div class="art-excerpt">Keine Ahnung von Aktien? Das ist okay. Ich zeige Dir, wie Du konkret anfängst und welche Fehler Du vermeidest.</div>
+          <div class="art-meta"><span>1. März 2025 · 8 Min.</span><span class="art-read">Lesen</span></div>
+        </div>
+      </a>
+
+      <a href="articles/ahv-verstehen.html" class="art-card" data-cat="ahv" data-reveal>
+        <div class="art-img">🇨🇭</div>
+        <div class="art-body">
+          <div class="art-cat">AHV & Rente</div>
+          <div class="art-title">AHV verstehen: Was jede Ärztin wissen sollte</div>
+          <div class="art-excerpt">Die AHV ist kompliziert. Aber wenn Du eine Fachperson bist, gibt es konkrete Optimierungsmöglichkeiten, die nur wenige kennen.</div>
+          <div class="art-meta"><span>15. Feb. 2025 · 9 Min.</span><span class="art-read">Lesen</span></div>
+        </div>
+      </a>
+
+      <a href="articles/steuern-optimieren.html" class="art-card" data-cat="steuern" data-reveal data-delay="80">
+        <div class="art-img">💰</div>
+        <div class="art-body">
+          <div class="art-cat">Steuern & Planung</div>
+          <div class="art-title">Steuern sparen legal: 5 konkrete Strategien für höhere Einkommen</div>
+          <div class="art-excerpt">Viele Professionelle zahlen zu viel Steuern, weil sie die Regeln nicht kennen. Hier sind die 5 wirkungsvollsten Tricks.</div>
+          <div class="art-meta"><span>5. Feb. 2025 · 7 Min.</span><span class="art-read">Lesen</span></div>
+        </div>
+      </a>
+
+      <div class="art-card" style="background:linear-gradient(145deg,var(--sage-d),#3A4C2E);border-color:transparent;cursor:default" data-reveal data-delay="160">
+        <div class="art-img" style="background:rgba(255,255,255,.05);font-size:44px">✍️</div>
+        <div class="art-body">
+          <div class="art-cat" style="color:var(--terra-l)">Bald verfügbar</div>
+          <div class="art-title" style="color:#fff">Finanzielle Angst überwinden: Ein ehrlicher Guide</div>
+          <div class="art-excerpt" style="color:rgba(255,255,255,.55)">Ob Du Ärztin, Unternehmerin oder Arbeitnehmerin bist — finanzielle Sicherheit ist ein mentales Spiel. Hier teile ich, was funktioniert hat.</div>
+          <div class="art-meta" style="border-color:rgba(255,255,255,.1)"><span style="color:rgba(255,255,255,.3)">Kommt bald</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIN -->
+<section class="section section--alt">
+  <div class="container" style="max-width:700px">
+    <div class="optin" data-reveal>
+      <span class="lbl">Gratis</span>
+      <h2>Meine AHV-<br><em>Checkliste</em></h2>
+      <p class="optin-sub">Alles, was Du über Deine AHV-Lücke und Vorsorgeplanung wissen musst.</p>
+      <form class="optin-form" action="https://formspree.io/f/YOURFORMID" method="POST">
+        <input type="email" name="email" placeholder="deine@email.ch" required/>
+        <input type="hidden" name="_subject" value="Blog Freebie Anmeldung"/>
+        <button type="submit" class="btn btn--primary">Kostenlos holen →</button>
+      </form>
+      <p class="optin-note">Kein Spam. Abmeldung jederzeit.</p>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand"><a href="index.html" class="footer-logo">Finanz<span>Schweiz</span></a><p>Begleitung für Schweizer Professionelle auf ihrem Weg zu finanzieller Unabhängigkeit.</p><div class="footer-social"><a href="#">🔗</a><a href="#">📧</a></div></div>
+    <div class="footer-col"><h4>Artikel</h4><ul><li><a href="articles/rentenluecke-10-faktoren.html">Rentenlücke schliessen</a></li><li><a href="articles/selbststaendige-steuern-vorsorge.html">Selbstständige</a></li><li><a href="articles/erste-investition.html">Erste Investition</a></li><li><a href="articles/ahv-verstehen.html">AHV verstehen</a></li><li><a href="articles/steuern-optimieren.html">Steuern sparen</a></li></ul></div>
+    <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Home</a></li><li><a href="meine-geschichte.html">Meine Geschichte</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+    <div class="footer-col"><h4>Rechtliches</h4><ul><li><a href="kontakt.html#impressum">Impressum</a></li><li><a href="kontakt.html#datenschutz">Datenschutz</a></li><li><a href="kontakt.html">AGB</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2025 FinanzSchweiz.ch</span><span>Made with 🇨🇭 in der Schweiz</span></div>
+  <p class="footer-disc">Diese Inhalte ersetzen keine professionelle Finanzberatung.</p>
+</div></footer>
+<script src="js/main.js"></script>
+</body></html>
