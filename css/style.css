@@ -121,9 +121,15 @@ em{font-style:italic}
 .optin h2{color:#fff;margin-bottom:12px}
 .optin-sub{font-size:15px;color:rgba(255,255,255,.55);margin-bottom:32px;font-weight:300}
 .optin-form{display:flex;gap:10px;max-width:440px;margin:0 auto}
-.optin-form input{flex:1;padding:13px 20px;border-radius:50px;border:none;font-family:var(--fb);font-size:13.5px;background:rgba(255,255,255,.12);color:#fff;outline:none}
-.optin-form input::placeholder{color:rgba(255,255,255,.4)}
-.optin-form input:focus{background:rgba(255,255,255,.18)}
+/* Default input style for light backgrounds (newsletter, forms on light sections) */
+.optin-form input{flex:1;padding:13px 20px;border-radius:50px;border:1.5px solid var(--sand-d);font-family:var(--fb);font-size:13.5px;background:#fff;color:var(--coal);outline:none}
+.optin-form input::placeholder{color:var(--lt)}
+.optin-form input:focus{border-color:var(--terra);box-shadow:0 0 0 3px rgba(196,113,79,.08)}
+
+/* Dark opt-in box override */
+.optin .optin-form input{background:rgba(255,255,255,.12);color:#fff;border:none}
+.optin .optin-form input::placeholder{color:rgba(255,255,255,.4)}
+.optin .optin-form input:focus{background:rgba(255,255,255,.18);box-shadow:none}
 .optin-note{font-size:11.5px;color:rgba(255,255,255,.3);margin-top:12px}
 
 /* FOOTER */

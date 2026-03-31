@@ -217,15 +217,15 @@
 <section class="section">
   <div class="container">
     <div class="optin" data-reveal>
-      <span class="lbl">Gratis Ressource</span>
-      <h2>Meine Vorsorge-Checkliste<br><em>für finanzielle Planung</em></h2>
-      <p class="optin-sub">Alles, was du über Vorsorge und Rente wissen musst — Schritt für Schritt erklärt.</p>
-      <form class="optin-form" action="https://formspree.io/f/xnjoddll" method="POST">
-        <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required/>
-        <input type="hidden" name="_subject" value="Neues Freebie-Abonnement"/>
-        <button type="submit" class="btn btn--primary">Jetzt herunterladen →</button>
+      <span class="lbl">Gratis Guide</span>
+      <h2>Dein Start in die finanzielle Reise<br><em>Praxis-PDF & Schritt-für-Schritt-Guide</em></h2>
+      <p class="optin-sub">Hol dir den kurzen PDF-Guide mit 10 konkreten Schritten, einer Starter-Checkliste und nützlichen Ressourcen, damit du heute sofort beginnen kannst.</p>
+      <form id="download-form" class="optin-form" novalidate>
+        <input type="email" id="download-email" name="email" placeholder="deine@email.ch" required/>
+        <button type="submit" class="btn btn--primary">Gratis PDF herunterladen →</button>
       </form>
-      <p class="optin-note">Kein Spam. Abmeldung jederzeit möglich.</p>
+      <div id="pdf-buffer" style="display:none" aria-hidden="true"></div>
+      <p class="optin-note">PDF wird per E‑Mail zugestellt. Kein Spam — Abmeldung jederzeit möglich.</p>
     </div>
   </div>
 </section>
