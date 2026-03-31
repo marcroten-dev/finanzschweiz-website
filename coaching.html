@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Finanzcoaching & Kurse — FinanzSchweiz.ch</title>
-  <meta name="description" content="1:1 Finanzcoaching und spezialisierte Module für Schweizer Professionelle. Individuelle Begleitung zu AHV, Steuern und Vermögensaufbau — auf Deutsch & Français." />
+  <meta name="description" content="1:1 Finanzcoaching und spezialisierte Module für Schweizer Professionelle. Individuelle Begleitung zu AHV, Steuern und Vermögensaufbau — auf Deutsch, Français und Englisch." />
   <link rel="stylesheet" href="css/style.css" />
   <style>
     /* PRICING CARDS */
@@ -266,7 +266,7 @@
   <div class="container">
     <span class="label">Finanzcoaching & Module</span>
     <h1>Dein Weg zu<br><em>finanzieller Freiheit.</em></h1>
-    <p>Individuelle Begleitung für Schweizer Professionelle — auf Deutsch & Français.</p>
+    <p>Individuelle Begleitung für Schweizer Professionelle — auf Deutsch, Français und Englisch.</p>
   </div>
 </div>
 
@@ -386,8 +386,8 @@
         <div class="faq-a">Als Ärztin mit MBA verstehe ich die spezifischen Herausforderungen von Healthcare-Professionellen. Ich bin nicht an Produktverkäufe gebunden und fokussiere auf nachhaltige, praktische Strategien, nicht auf Finanzprodukte.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Kann ich das Coaching auch auf Französisch machen?</div>
-        <div class="faq-a">Ja! Ich bin zweisprachig und biete alle Leistungen auf Deutsch und Französisch an.</div>
+        <div class="faq-q">Kann ich das Coaching auch auf Französisch oder Englisch machen?</div>
+        <div class="faq-a">Ja. Ich biete alle Leistungen auf Deutsch, Français und Englisch an.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Wie viel Zeit brauche ich pro Woche?</div>
@@ -450,23 +450,5 @@
 </footer>
 
 <script src="js/main.js"></script>
-<script>
-  // FAQ: Event delegation for robust toggling
-  (function() {
-    const container = document.querySelector('.faq');
-    if (!container) return;
-    container.style.cursor = 'default';
-    container.addEventListener('click', function(e) {
-      const q = e.target.closest('.faq-q');
-      if (!q || !container.contains(q)) return;
-      const item = q.parentElement;
-      if (!item || !item.classList.contains('faq-item')) return;
-      // close others
-      container.querySelectorAll('.faq-item.open').forEach(i => { if (i !== item) i.classList.remove('open'); });
-      // toggle this one
-      item.classList.toggle('open');
-    });
-  })();
-</script>
 </body>
 </html>

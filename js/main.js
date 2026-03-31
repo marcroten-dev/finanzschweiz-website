@@ -52,5 +52,18 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
+  // FAQ: delegated handler for .faq containers
+  const faqContainer = document.querySelector('.faq');
+  if (faqContainer) {
+    faqContainer.addEventListener('click', function(e) {
+      const q = e.target.closest('.faq-q');
+      if (!q || !faqContainer.contains(q)) return;
+      const item = q.parentElement;
+      if (!item || !item.classList.contains('faq-item')) return;
+      faqContainer.querySelectorAll('.faq-item.open').forEach(i => { if (i !== item) i.classList.remove('open'); });
+      item.classList.toggle('open');
+    });
+  }
 });
 
