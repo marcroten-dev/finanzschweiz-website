@@ -225,7 +225,7 @@
         <button type="submit" class="btn btn--primary">Gratis PDF herunterladen →</button>
       </form>
       <div id="pdf-buffer" style="display:none" aria-hidden="true"></div>
-      <p class="optin-note">PDF wird per E‑Mail zugestellt. Kein Spam — Abmeldung jederzeit möglich.</p>
+      <p class="optin-note">Der Guide wird sofort heruntergeladen; optional speichern wir deine E‑Mail lokal für den Newsletter.</p>
     </div>
   </div>
 </section>
@@ -236,7 +236,7 @@
     <div class="section-hd centered" style="margin-bottom:28px"><span class="lbl">Newsletter</span><h2 style="margin-top:10px">Finanz-Tipps<br><em>direkt in dein Postfach</em></h2></div>
     <div style="max-width:550px;margin:0 auto;text-align:center">
       <p style="font-size:15px;color:var(--mid);margin-bottom:24px;font-weight:300;line-height:1.75">Jeden 2. Montag: Praktische Finanztipps, neue Blogartikel und Einblicke in Finanzplanung.</p>
-      <form class="optin-form" action="https://formspree.io/f/xnjoddll" method="POST" style="display:flex;gap:10px;max-width:100%">
+      <form id="newsletter-form" class="optin-form" style="display:flex;gap:10px;max-width:100%">
         <input type="email" name="email" placeholder="deine@email.ch" required style="flex:1"/>
         <button type="submit" class="btn btn--primary">Anmelden →</button>
       </form>
