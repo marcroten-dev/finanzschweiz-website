@@ -25,9 +25,23 @@
 </style>
 </head>
 <body>
+
+<!-- UNDER CONSTRUCTION BANNER -->
+<div style="background:linear-gradient(135deg,#c47150 0%,#8b9e7e 100%);padding:16px 20px;text-align:center;color:#fff;font-size:14px;font-weight:500;letter-spacing:0.5px;box-shadow:0 4px 12px rgba(196,113,79,0.15);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;left:0;right:0;bottom:0;opacity:0.1;background-image:repeating-linear-gradient(45deg,transparent,transparent 35px,rgba(255,255,255,.1) 35px,rgba(255,255,255,.1) 70px);"></div>
+  <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:12px;">
+    <span style="font-size:20px;animation:pulse 2s infinite;">✨</span>
+    <span>Diese Website ist noch in Entwicklung — Inhalte werden laufend aktualisiert</span>
+    <span style="font-size:20px;animation:pulse 2s infinite 0.5s;">🚀</span>
+  </div>
+  <style>
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+  </style>
+</div>
+
 <nav class="nav"><div class="nav-inner">
   <a href="index.html" class="logo">Finanz<span>Schweiz</span></a>
-  <ul class="nav-links">
+  <ul class="nav-links"> 
     <li><a href="index.html">Home</a></li><li><a href="meine-geschichte.html">Meine Geschichte</a></li>
     <li><a href="blog.html" class="active">Blog</a></li><li><a href="coaching.html">Coaching</a></li><li><a href="kontakt.html">Kontakt</a></li>
   </ul>
@@ -129,7 +143,7 @@
       <span class="lbl">Gratis</span>
       <h2>Meine AHV-<br><em>Checkliste</em></h2>
       <p class="optin-sub">Alles, was Du über Deine AHV-Lücke und Vorsorgeplanung wissen musst.</p>
-      <form class="optin-form" action="https://formspree.io/f/YOURFORMID" method="POST">
+      <form class="optin-form" action="https://formspree.io/f/xnjoddll" method="POST">
         <input type="email" name="email" placeholder="deine@email.ch" required/>
         <input type="hidden" name="_subject" value="Blog Freebie Anmeldung"/>
         <button type="submit" class="btn btn--primary">Kostenlos holen →</button>

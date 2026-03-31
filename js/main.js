@@ -39,10 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // FAQ
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', () => q.closest('.faq-item').classList.toggle('open'));
-  });
+
 
   // BLOG FILTER
   document.querySelectorAll('.filter-btn').forEach(btn => {

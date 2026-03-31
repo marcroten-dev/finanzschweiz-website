@@ -227,6 +227,19 @@
 </head>
 <body>
 
+<!-- UNDER CONSTRUCTION BANNER -->
+<div style="background:linear-gradient(135deg,#c47150 0%,#8b9e7e 100%);padding:16px 20px;text-align:center;color:#fff;font-size:14px;font-weight:500;letter-spacing:0.5px;box-shadow:0 4px 12px rgba(196,113,79,0.15);position:relative;overflow:hidden;">
+  <div style="position:absolute;top:0;left:0;right:0;bottom:0;opacity:0.1;background-image:repeating-linear-gradient(45deg,transparent,transparent 35px,rgba(255,255,255,.1) 35px,rgba(255,255,255,.1) 70px);"></div>
+  <div style="position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:12px;">
+    <span style="font-size:20px;animation:pulse 2s infinite;">✨</span>
+    <span>Diese Website ist noch in Entwicklung — Inhalte werden laufend aktualisiert</span>
+    <span style="font-size:20px;animation:pulse 2s infinite 0.5s;">🚀</span>
+  </div>
+  <style>
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+  </style>
+</div>
+
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="index.html" class="logo">Finanz<span>Schweiz</span></a>
@@ -356,42 +369,6 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="section">
-  <div class="container">
-    <div class="section-header text-center">
-      <span class="label">Ergebnisse</span>
-      <h2 style="margin-top:12px;">Was meine<br><em>Klientinnen sagen</em></h2>
-    </div>
-    <div class="testimonials-track">
-      <div class="testimonial" data-reveal>
-        <div class="testimonial__stars">★★★★★</div>
-        <p class="testimonial__text">Katharina hat mir gezeigt, dass Finanzen nicht kompliziert sein müssen. In 3 Monaten habe ich meine AHV-Lücke um CHF 80'000 geschlossen und meine Steuern optimiert. Absolute Empfehlung!</p>
-        <div class="testimonial__author">
-          <div class="testimonial__avatar">👩‍⚕️</div>
-          <div><div class="testimonial__name">Dr. med. Sarah M.</div><div class="testimonial__meta">Internistin, Zürich</div></div>
-        </div>
-      </div>
-      <div class="testimonial" data-reveal data-delay="100">
-        <div class="testimonial__stars">★★★★★</div>
-        <p class="testimonial__text">Endlich jemand, der ärztliche Finanzprobleme versteht! Die Anlageberatung ist konkret und umzusetzen. Ich fühle mich jetzt kontrollierend statt ängstlich.</p>
-        <div class="testimonial__author">
-          <div class="testimonial__avatar">👩‍⚕️</div>
-          <div><div class="testimonial__name">Julia B.</div><div class="testimonial__meta">Zahnhärztin, Bern</div></div>
-        </div>
-      </div>
-      <div class="testimonial" data-reveal data-delay="200">
-        <div class="testimonial__stars">★★★★★</div>
-        <p class="testimonial__text">Katharina antwortet wirklich auf meine Fragen. Ihr Modul "Selbstständige Steuern" hat mir allein CHF 25'000 gespart. Das beste Geld, das ich je investiert habe.</p>
-        <div class="testimonial__author">
-          <div class="testimonial__avatar">👩‍💼</div>
-          <div><div class="testimonial__name">Mia K.</div><div class="testimonial__meta">Freelance Consultant, Basel</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- FAQ -->
 <section class="section section--alt">
   <div class="container container--narrow">
@@ -474,12 +451,22 @@
 
 <script src="js/main.js"></script>
 <script>
-  document.querySelectorAll('.faq-q').forEach(q => {
-    q.addEventListener('click', () => {
-      const item = q.closest('.faq-item');
+  // FAQ: Event delegation for robust toggling
+  (function() {
+    const container = document.querySelector('.faq');
+    if (!container) return;
+    container.style.cursor = 'default';
+    container.addEventListener('click', function(e) {
+      const q = e.target.closest('.faq-q');
+      if (!q || !container.contains(q)) return;
+      const item = q.parentElement;
+      if (!item || !item.classList.contains('faq-item')) return;
+      // close others
+      container.querySelectorAll('.faq-item.open').forEach(i => { if (i !== item) i.classList.remove('open'); });
+      // toggle this one
       item.classList.toggle('open');
     });
-  });
+  })();
 </script>
 </body>
 </html>
